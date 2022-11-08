@@ -1,19 +1,15 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { HelloService } from "./HelloService";
-
-type Request = {
-  name: string;
-};
+import { HelloService, SayHello } from "./HelloService";
 
 type Data = {
   message: string;
 };
 
 export function HelloController(
-  req: Override<NextApiRequest, { body: Request }>,
+  req: Override<NextApiRequest, { body: SayHello }>,
   res: NextApiResponse<Data>
 ) {
-  const message = HelloService(req.body.name);
+  const message = HelloService(req.body);
 
   if (message) {
     return res.json({ message });
