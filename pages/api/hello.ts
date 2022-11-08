@@ -1,13 +1,14 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from "next";
+import { HelloController } from "../../src/manager/app/Hello/HelloController";
 
-type Data = {
-  name: string
+function handler(req: NextApiRequest, res: NextApiResponse) {
+  switch (req.method) {
+    case "GET":
+      return HelloController(req, res);
+
+    default:
+      return res.status(400).send("No method provider");
+  }
 }
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
-}
+export default handler;
