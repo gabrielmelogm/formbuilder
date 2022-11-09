@@ -1,3 +1,4 @@
+import { hashPassword } from "../../../utils/bcrypt";
 import {
   GetUserByUsernameRepositorie,
   User,
@@ -23,7 +24,16 @@ export const CreateUserService: CreateUserServiceProps = async (user) => {
       error: "Username already exists",
     };
 
-  const response = await CreateUserRepositorie(user);
+  const hash = await hashPassword(password);
+
+  const newUser = {
+    name,
+    username,
+    email,
+    password: hash,
+  };
+
+  const response = await CreateUserRepositorie(newUser);
 
   return response;
 };
