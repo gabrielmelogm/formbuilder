@@ -2,12 +2,12 @@ import { GetUserRepositorie } from "./GetUserRepositorie";
 
 import type { User } from "./GetUserRepositorie";
 
-type GetUserServiceProps = (
-  id: string
-) => Promise<Omit<User, "password"> | null>;
+export type GetUserServiceResponse = Omit<User, "password"> | string | null;
+
+type GetUserServiceProps = (id: string) => Promise<GetUserServiceResponse>;
 
 export const GetUserService: GetUserServiceProps = async (id) => {
-  if (!id) return null;
+  if (!id) return "Data is missing";
 
   const user = await GetUserRepositorie(id);
 

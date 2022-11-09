@@ -9,7 +9,8 @@ export function HelloController(
   req: Override<NextApiRequest, { body: SayHello }>,
   res: NextApiResponse<Data>
 ) {
-  const message = HelloService(req.body);
+  const name = req.query.name as string;
+  const message = HelloService({ name });
 
   if (message) {
     return res.json({ message });

@@ -1,8 +1,4 @@
-import { testClient } from "../../utils/testClient";
-import handler from "../../../../pages/api/hello";
 import { HelloService } from "./HelloService";
-
-const request = testClient(handler);
 
 describe("Testes unitários para HelloService", () => {
   it("Deve retornar hello com nome inputado", () => {
