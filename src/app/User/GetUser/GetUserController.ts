@@ -11,7 +11,7 @@ export async function GetUserController(
   req: Override<NextApiRequest, { body: User }>,
   res: NextApiResponse<Data>
 ) {
-  const response: any = await GetUserService(req.query.id as string);
+  const response: any = await GetUserService(req.query.email as string);
 
   if (response?.id) {
     const user = response;

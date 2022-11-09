@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { CreateUserController } from "../../src/app/User/CreateUser/CreateUserController";
 import { GetUserController } from "../../src/app/User/GetUser/GetUserController";
 
 function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -7,7 +6,7 @@ function handler(req: NextApiRequest, res: NextApiResponse) {
     case "GET":
       return GetUserController(req, res);
     case "POST":
-      return CreateUserController(req, res);
+      return;
     case "PUT":
       return;
     case "DELETE":
