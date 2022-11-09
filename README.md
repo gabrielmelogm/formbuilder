@@ -24,4 +24,4 @@ yarn
 - Typescript
 - Docker
 - Prisma
-- Vitest
+- Jest

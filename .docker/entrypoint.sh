@@ -1,4 +1,2 @@
 #!/bin/bash
-rm .env && mv .env.dev .env
-
-npm run dev
+npm i && npm run dev
