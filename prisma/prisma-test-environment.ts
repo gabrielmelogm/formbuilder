@@ -17,7 +17,7 @@ export default class PrismaTestEnvironment extends NodeEnvironment {
   private schema: string;
   private connectionString: string;
 
-  constructor(config: Config.ProjectConfig, _context?: EnvironmentContext) {
+  constructor(config: any, _context?: EnvironmentContext) {
     super(config, _context);
 
     const dbUser = process.env.DATABASE_USER;
