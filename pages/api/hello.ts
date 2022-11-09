@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { HelloController } from "../../src/manager/app/Hello/HelloController";
+import { HelloController } from "../../app/api/Hello/HelloController";
 
 function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {

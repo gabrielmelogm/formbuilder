@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { CreateUserController } from "../../src/manager/app/User/CreateUser/CreateUserController";
-import { GetUserController } from "../../src/manager/app/User/GetUser/GetUserController";
+import { CreateUserController } from "../../app/api/User/CreateUser/CreateUserController";
+import { GetUserController } from "../../app/api/User/GetUser/GetUserController";
 
 function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {

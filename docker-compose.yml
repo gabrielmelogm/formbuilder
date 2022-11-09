@@ -10,6 +10,7 @@ services:
     ports:
       - 3000:3000
     volumes:
+      - ./app:/app/app
       - ./pages:/app/pages
       - ./src:/app/src
       - ./public:/app/public

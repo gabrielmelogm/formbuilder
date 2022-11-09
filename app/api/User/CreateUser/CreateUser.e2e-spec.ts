@@ -1,4 +1,4 @@
-import handler from "../../../../../pages/api/user";
+import handler from "../../../../pages/api/user";
 import { testClient } from "../../../utils/testClient";
 
 const request = testClient(handler);

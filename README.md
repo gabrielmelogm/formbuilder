@@ -25,3 +25,4 @@ yarn
 - Docker
 - Prisma
 - Jest
+- Tailwind
