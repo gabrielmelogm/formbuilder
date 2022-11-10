@@ -5,6 +5,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -46,6 +50,7 @@ model User {
   isAdm         Boolean   @default(false)
   accounts      Account[]
   sessions      Session[]
+  forms         Form[]
 }
 
 model VerificationToken {
@@ -54,4 +59,29 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Form {
+  id            String    @id @default(cuid())
+  title         String
+  description   String?
+  owner         String
+  createdAt     DateTime  @default(now())
+
+  user          User      @relation(fields: [owner], references: [id], onDelete: Cascade)
+
+  formFields    FormMaping[]
+
+  @@map("form")
+}
+
+model FormMaping {
+  id            String    @id @default(cuid())
+  config        Json
+  createdAt     DateTime  @default(now())
+
+  form          Form      @relation(fields: [formId], references: [id], onDelete: Cascade)
+  formId        String
+
+  @@map("form_maping")
 }

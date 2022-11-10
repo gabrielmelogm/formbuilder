@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { User } from "./GetUserRepositorie";
+import { User } from "./GetUserRepository";
 import { GetUserService, GetUserServiceResponse } from "./GetUserService";
 
 type Data = {
