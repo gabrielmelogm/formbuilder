@@ -1,4 +1,4 @@
-import { prisma } from "../../lib/prisma";
+import { prisma } from "../../../lib/prisma";
 
 export type Form = {
   title: string;
@@ -12,7 +12,7 @@ export type Form = {
   }[];
 };
 
-export async function FormRepository(form: Form) {
+export async function CreateFormRepository(form: Form) {
   const config: any = form.config;
   try {
     const formCreated = await prisma.form.create({
