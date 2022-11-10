@@ -4,9 +4,9 @@ import { AiFillGithub, AiOutlineGoogle } from "react-icons/ai";
 
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context);
+  const session: any = await getSession(context);
 
-  if (session) {
+  if (session && session.user.isAdm) {
     return {
       redirect: {
         destination: "/manager",

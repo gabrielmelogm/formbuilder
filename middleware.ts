@@ -16,9 +16,9 @@ export async function middleware(req: NextRequest) {
       },
     };
 
-    const session = await getSession({ req: requestForNextAuth });
+    const session: any = await getSession({ req: requestForNextAuth });
 
-    if (session) {
+    if (session && session.user.isAdm === true) {
       return NextResponse.next();
     }
 

@@ -14,6 +14,7 @@ export const authOptions = {
           name: profile.name || profile.login,
           email: profile.email,
           image: profile.avatar_url,
+          isAdm: false,
         };
       },
     }),
@@ -26,6 +27,7 @@ export const authOptions = {
       user: {
         ...session.user,
         id: user.id,
+        isAdm: user.isAdm,
       },
     }),
   },
