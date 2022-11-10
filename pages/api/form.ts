@@ -1,13 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { CreateUserController } from "../../src/app/User/CreateUser/CreateUserController";
-import { GetUserController } from "../../src/app/User/GetUser/GetUserController";
+import { CreateFormController } from "../../src/app/Form/CreateForm/CreateFormController";
 
 function handler(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {
     case "GET":
-      return GetUserController(req, res);
+      return;
     case "POST":
-      return CreateUserController(req, res);
+      return CreateFormController(req, res);
     case "PUT":
       return;
     case "DELETE":
