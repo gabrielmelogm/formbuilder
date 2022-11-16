@@ -1,7 +1,10 @@
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export function Sidebar() {
   const { data: session } = useSession() as any;
+
+  const router = useRouter()
 
   return (
     <div className="sidebar min-h-screen w-[3.35rem] overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg">
@@ -21,10 +24,9 @@ export function Sidebar() {
           </div>
           <ul className="mt-6 space-y-2 tracking-wide">
             <li className="min-w-max">
-              <a
-                href="#"
-                aria-label="dashboard"
-                className="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white"
+              <span
+                onClick={() => router.push("/manager")}
+                className="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white hover:cursor-pointer"
               >
                 <svg className="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                   <path
@@ -40,13 +42,13 @@ export function Sidebar() {
                     className="fill-current group-hover:text-sky-300"
                   ></path>
                 </svg>
-                <span className="-mr-1 font-medium">Dashboard</span>
-              </a>
+                <span className="-mr-1 font-medium">Criar form</span>
+              </span>
             </li>
             <li className="min-w-max">
-              <a
-                href="#"
-                className="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600"
+              <span
+                onClick={() => router.push('/manager/users')}
+                className="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600 hover:cursor-pointer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,10 +67,10 @@ export function Sidebar() {
                     d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
                   />
                 </svg>
-                <span className="group-hover:text-gray-700">Categories</span>
-              </a>
+                <span className="group-hover:text-gray-700">Usuários</span>
+              </span>
             </li>
-            <li className="min-w-max">
+            {/* <li className="min-w-max">
               <a
                 href="#"
                 className="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600"
@@ -140,7 +142,7 @@ export function Sidebar() {
                 </svg>
                 <span className="group-hover:text-gray-700">Finance</span>
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="w-max -mb-3">
