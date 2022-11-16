@@ -1,4 +1,4 @@
-import { GetUserRepository } from "./GetUserRepository";
+import { GetAllUserRepostitory, GetUserRepository } from "./GetUserRepository";
 
 import type { User } from "./GetUserRepository";
 
@@ -13,6 +13,18 @@ export const GetUserService: GetUserServiceProps = async (email) => {
 
   if (user) {
     return user;
+  } else {
+    return null;
+  }
+};
+
+type GetAllUsersServiceProps = () => Promise<User[] | null>;
+
+export const GetAllUsersService: GetAllUsersServiceProps = async () => {
+  const users = await GetAllUserRepostitory();
+
+  if (users) {
+    return users;
   } else {
     return null;
   }

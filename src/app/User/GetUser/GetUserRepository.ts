@@ -21,3 +21,13 @@ export async function GetUserRepository(email: string) {
     return error;
   }
 }
+
+export async function GetAllUserRepostitory() {
+  try {
+    const users = await prisma.user.findMany();
+
+    return users;
+  } catch (error) {
+    return error;
+  }
+}
